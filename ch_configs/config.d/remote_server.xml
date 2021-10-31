@@ -1,0 +1,29 @@
+<yandex>
+    <remote_servers replace="true">
+        <analytics>
+            <!-- shard 01 -->
+            <shard>
+                <replica>
+                    <host>ch1</host>
+                    <port>9000</port>
+                </replica>
+                <replica>
+                    <host>ch2</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+
+            <!-- shard 02 -->
+            <shard>
+                <replica>
+                    <host>ch3</host>
+                    <port>9000</port>
+                </replica>
+                <replica>
+                    <host>ch4</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </analytics>
+    </remote_servers>
+</yandex>

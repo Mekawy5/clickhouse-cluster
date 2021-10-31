@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+
+  zookeeper:
+    image: zookeeper
+    volumes:
+      - './data/zoo/data:/data'
+      - './data/zoo/datalog:/datalog'
+
+  ch1:
+    image: yandex/clickhouse-server:21.10.2.15
+    restart: on-failure
+    depends_on:
+      - zookeeper
+    volumes:
+      - './data/ch1/ch:/var/lib/clickhouse/'
+      - './ch_configs:/etc/clickhouse-server/'
+      - './ch_configs/macros_ch1.xml:/etc/clickhouse-server/config.d/macros.xml'
+    ports:
+      - 9000:9000
+      - 8123:8123
+      - 9440:9440
+      - 8443:8443
+    ulimits:
+      nofile: 262144
+
+  ch2:
+    image: yandex/clickhouse-server:21.10.2.15
+    restart: on-failure
+    depends_on:
+      - zookeeper
+    volumes:
+      - './data/ch2/ch:/var/lib/clickhouse/'
+      - './ch_configs:/etc/clickhouse-server/'
+      - './ch_configs/macros_ch2.xml:/etc/clickhouse-server/config.d/macros.xml'
+    ulimits:
+      nofile: 262144
+
+  ch3:
+    image: yandex/clickhouse-server:21.10.2.15
+    restart: on-failure
+    depends_on:
+      - zookeeper
+    volumes:
+      - './data/ch3/ch:/var/lib/clickhouse/'
+      - './ch_configs:/etc/clickhouse-server/'
+      - './ch_configs/macros_ch3.xml:/etc/clickhouse-server/config.d/macros.xml'
+    ulimits:
+      nofile: 262144
+
+  ch4:
+    image: yandex/clickhouse-server:21.10.2.15
+    restart: on-failure
+    depends_on:
+      - zookeeper
+    volumes:
+      - './data/ch4/ch:/var/lib/clickhouse/'
+      - './ch_configs:/etc/clickhouse-server/'
+      - './ch_configs/macros_ch4.xml:/etc/clickhouse-server/config.d/macros.xml'
+    ulimits:
+      nofile: 262144
+
+  # client:
+  #   image: yandex/clickhouse-client:21.10.2.15
+  #   volumes:
+  #     - './client-config.xml:/etc/clickhouse-client/config.xml'

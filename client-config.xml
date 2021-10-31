@@ -1,0 +1,6 @@
+<config>
+    <user>default</user>
+    <password>123456</password>
+    <!-- <secure>True</secure> -->
+    <!-- <host></host> -->
+</config>
