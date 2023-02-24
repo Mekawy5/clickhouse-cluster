@@ -9,7 +9,7 @@ services:
       - './data/zoo/datalog:/datalog'
 
   ch1:
-    image: yandex/clickhouse-server:21.10.2.15
+    image: clickhouse/clickhouse-server:23.1.2.9
     restart: on-failure
     depends_on:
       - zookeeper
@@ -26,7 +26,7 @@ services:
       nofile: 262144
 
   ch2:
-    image: yandex/clickhouse-server:21.10.2.15
+    image: clickhouse/clickhouse-server:23.1.2.9
     restart: on-failure
     depends_on:
       - zookeeper
@@ -38,7 +38,7 @@ services:
       nofile: 262144
 
   ch3:
-    image: yandex/clickhouse-server:21.10.2.15
+    image: clickhouse/clickhouse-server:23.1.2.9
     restart: on-failure
     depends_on:
       - zookeeper
@@ -50,7 +50,7 @@ services:
       nofile: 262144
 
   ch4:
-    image: yandex/clickhouse-server:21.10.2.15
+    image: clickhouse/clickhouse-server:23.1.2.9
     restart: on-failure
     depends_on:
       - zookeeper

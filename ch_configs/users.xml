@@ -75,6 +75,10 @@
 
             <!-- Quota for user. -->
             <quota>default</quota>
+
+            <!-- access management from sql
+            https://clickhouse.com/docs/en/operations/settings/settings-users#access_management-user-setting -->
+            <access_management>1</access_management>
         </default>
 
         <!-- Example of user with readonly access. -->
